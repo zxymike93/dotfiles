@@ -25,3 +25,13 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/local/bin" ] ; then
+    PATH="/usr/local/bin:$PATH"
+fi
+
+# set PYTHONSTARTUP so it includes user's python startup script
+if [ -f "$HOME/.pythonstartup" ] ; then
+    export PYTHONSTARTUP="$HOME/.pythonstartup"
+fi
